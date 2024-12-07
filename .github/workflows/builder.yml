@@ -115,7 +115,6 @@ jobs:
     - name: Get dependencies
       run: |
         go get -v -t -d ./...
-
     - name: Build binary
       id: builder
       run: |
@@ -131,7 +130,6 @@ jobs:
         fi
         go build -trimpath --ldflags "-s -w -buildid=" -v -o ./bin/${{ env.PRODUCT }}-${ARGS}
         echo "::set-output name=filename::${{ env.PRODUCT }}-${ARGS}"
-
     - name: Upload binary artifacts
       uses: actions/upload-artifact@v3
       with:
